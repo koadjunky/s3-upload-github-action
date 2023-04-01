@@ -1,9 +1,9 @@
 FROM node:12.10.0-alpine
 
 LABEL "version"="0.1.0"
-LABEL "repository"="https://github.com/koraykoska/s3-upload-github-action"
-LABEL "homepage"="https://github.com/koraykoska/s3-upload-github-action"
-LABEL "maintainer"="Koray Koska <koray@koska.at>"
+LABEL "repository"="https://github.com/koadjunky/s3-upload-github-action"
+LABEL "homepage"="https://github.com/koadjunky/s3-upload-github-action"
+LABEL "maintainer"="koadjunky <koadjunky@gmail.com>"
 
 # Add the entry point
 RUN mkdir /app
