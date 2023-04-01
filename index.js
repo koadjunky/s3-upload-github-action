@@ -9,6 +9,8 @@ const s3 = new aws.S3({
   secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
 });
 
+const removePrefix = process.env.S3_REMOVE_PREFIX || `${process.env.FILE}/`;
+
 const uploadFile = (fileName) => {
   if (fs.lstatSync(fileName).isDirectory()) {
     fs.readdirSync(fileName).forEach((file) => {
@@ -20,7 +22,7 @@ const uploadFile = (fileName) => {
     // Setting up S3 upload parameters
     const params = {
       Bucket: process.env.S3_BUCKET,
-      Key: `${process.env.S3_PREFIX || ""}${path.normalize(fileName.replace(process.env.FILE, ''))}`,
+      Key: `${process.env.S3_ADD_PREFIX || ""}${path.normalize(fileName.replace(removePrefix, ''))}`,
       Body: fileContent,
     };
     const acl = process.env.S3_ACL;

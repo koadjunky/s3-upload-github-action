@@ -23,11 +23,12 @@ jobs:
       - name: Upload file to bucket
         uses: koadjunky/s3-upload-github-action@master
         env:
-          FILE: ./public/
+          FILE: ./public
           S3_ENDPOINT: 's3.us-east-1.amazonaws.com'
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
           S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
           S3_ACL: 'public-read'
-          S3_PREFIX: "release"
+          S3_REMOVE_PREFIX: ./public/
+          S3_ADD_PREFIX: release/
 ```
